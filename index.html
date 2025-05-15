@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invitación Animada</title>
+  <link rel="stylesheet" href="styles.css" />
+
+
+</head>
+<body>
+
+  <div class="scene">
+<!-- Botón fuera de .scene -->
+<button class="abrir">Abrir invitación</button>
+
+<div class="scene oculto">
+  <img src="multimedia/imagenes/cortina.png" class="hoja hoja-izquierda" />
+  <img src="multimedia/imagenes/cortina-x.png" class="hoja hoja-derecha" />
+  <img src="multimedia/imagenes/flores.jpg" class="campo" />
+
+  <img src="multimedia/imagenes/abeja.png" class="abeja abeja1" />
+  <img src="multimedia/imagenes/abeja.png" class="abeja abeja2" />
+  <img src="multimedia/imagenes/abeja.png" class="abeja abeja3" />
+  <img src="multimedia/imagenes/abeja_reversa.png" class="abeja abeja4" />
+  <img src="multimedia/imagenes/abeja_reversa.png" class="abeja abeja5" />
+
+  <div class="tarjeta">
+    <h1>¡Estás Invitado!</h1>
+    <p>Ven a celebrar mi primer cumpleaños</p>
+    <h1>1</h1>
+    <img src="multimedia/imagenes/abeja.png" alt="">
+    <p>🎉 Sábado 17 de Mayo🎉</p>
+    <a href="https://maps.google.com/maps?q=-25.57141876220703%2C-54.60145568847656&z=17&hl=es">
+      en la casa de mis abuelos
+    </a>
+    <p>⏰ 17:00 A 20:00 PM⏰</p>
+    <p>¡No faltes!</p>
+  </div>
+</div>
+<!-- Botón fuera de .scene -->
+<button class="abrir">Abrir invitación</button>
+
+<div class="scene oculto">
+  <img src="multimedia/imagenes/cortina.png" class="hoja hoja-izquierda" />
+  <img src="multimedia/imagenes/cortina-x.png" class="hoja hoja-derecha" />
+  <img src="multimedia/imagenes/flores.jpg" class="campo" />
+
+  <img src="multimedia/imagenes/abeja.png" class="abeja abeja1" />
+  <img src="multimedia/imagenes/abeja.png" class="abeja abeja2" />
+  <img src="multimedia/imagenes/abeja.png" class="abeja abeja3" />
+  <img src="multimedia/imagenes/abeja_reversa.png" class="abeja abeja4" />
+  <img src="multimedia/imagenes/abeja_reversa.png" class="abeja abeja5" />
+
+  <div class="tarjeta">
+    <h1>¡Estás Invitado!</h1>
+    <p>Ven a celebrar mi primer cumpleaños</p>
+    <h1>1</h1>
+    <img src="multimedia/imagenes/abeja.png" alt="">
+    <p>🎉 Sábado 17 de Mayo🎉</p>
+    <a href="https://maps.google.com/maps?q=-25.57141876220703%2C-54.60145568847656&z=17&hl=es">
+      en la casa de mis abuelos
+    </a>
+    <p>⏰ 17:00 A 20:00 PM⏰</p>
+    <p>¡No faltes!</p>
+  </div>
+</div>
+
+  <button class="abrir">Abrir invitación</button>
+  <script src="script.js"></script>
+  <audio id="musica" autoplay muted loop src="multimedia/musica.mp3"></audio>
+
+  <script>
+    document.body.addEventListener('click', () => {
+      const audio = document.getElementById('musica');
+      audio.muted = false;  // quitar silencio
+      audio.play();
+    }, { once: true });
+  </script>
+  <script>
+    document.querySelector('.abrir').addEventListener('click', function() {
+      const tarjeta = document.querySelector('.tarjeta');
+      const boton = document.querySelector('.abrir');
+  
+      // Mostrar la tarjeta
+      tarjeta.style.display = 'block';
+      setTimeout(() => {
+        tarjeta.style.opacity = '1';
+      }, 50); // un pequeño retraso para permitir que el display se aplique antes de la transición
+  
+      // Ocultar el botón
+      boton.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

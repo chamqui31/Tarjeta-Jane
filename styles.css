@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #4cc158, #208623, #0f3d10);
+  font-family: 'Fredoka', sans-serif;
+
+  /* Centramos el contenido (el botón) */
+  display: flex;
+  justify-content: center;  /* centro horizontal */
+  align-items: center;      /* centro vertical */
+  height: 100vh;            /* altura completa */
+  width: 100vw;             /* ancho completo */
+}
+
+.tarjeta {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+
+  transform: translateX(-70%);
+  background-color: #fff3c4;
+  padding: 30px 50px;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 2;
+  animation: subir 2s ease forwards;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.tarjeta h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #d17d00;
+}
+
+.tarjeta p {
+  margin: 10px 0;
+}
+
+.scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+button.abrir {
+  position: fixed; /* para estar encima siempre, sin importar scroll */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 20px 50px;
+  background-color: #fff3c4;
+  color: #d17d00;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  z-index: 1; /* más alto que cualquier otro */
+}
+
+
+/* Hojas*/
+.hoja {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 2s ease;
+  z-index: 3;
+  font-size: 7rem;
+}
+.hoja-izquierda {
+  left: 0;
+  transform: translateX(0);
+
+}
+.hoja-derecha {
+  right: 0;
+  transform: translateX(0);
+}
+
+/* Campo de flores */
+.campo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 2s ease;
+  z-index: 1;
+}
+
+/* Tarjeta */
+.tarjeta {
+  position: absolute;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff8dc;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: all 1s ease;
+  z-index: 4;
+  text-align: center;
+}
+
+/* Abejas */
+.abeja {
+  position: absolute;
+  width: 140px;
+  opacity: 0;
+  z-index: 2;
+}
+
+/* Animaciones normales */
+.abeja1 { 
+  top: 25%;
+  animation: vuelo 10s linear infinite;
+  animation-delay: 0s;
+}
+.abeja2 {
+  top: 50%;
+  animation: vuelo 10s linear infinite;
+  animation-delay: 3s;
+}
+.abeja3 {
+  top: 75%;
+  animation: vuelo 10s linear infinite;
+  animation-delay: 6s;
+}
+
+/* Animaciones invertidas */
+.abeja4 {
+  top: 35%;
+  animation: vuelo-reversa 10s linear infinite;
+  animation-delay: 1s;
+}
+.abeja5 {
+  top: 60%;
+  animation: vuelo-reversa 10s linear infinite;
+  animation-delay: 4s;
+}
+
+
+/* Animación en dirección inversa */
+@keyframes vuelo-reversa {
+  0% {
+    left: 100vw;
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(-10deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(20px) rotate(10deg);
+  }
+  100% {
+    left: -100px;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+@keyframes vuelo {
+  0% {
+    left: -100px;
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(20px) rotate(-10deg);
+  }
+  100% {
+    left: 100vw;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
